@@ -1,0 +1,2031 @@
+﻿<WorkflowService mc:Ignorable="sap" ConfigurationName="EEQMU_MODEL" sap:VirtualizedContainerService.HintSize="525,1059" Name="EEQMU_MODEL" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/servicemodel" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:e="clr-namespace:EEQMU_MODEL;assembly=EEQMU_MODEL" xmlns:e1="clr-namespace:EEQ_MU_SmartSolutionsDALC;assembly=EEQ_MU_SmartSolutionsDALC" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System;assembly=System" xmlns:s2="clr-namespace:System;assembly=System.Xml" xmlns:s3="clr-namespace:System;assembly=System.Core" xmlns:s4="clr-namespace:System;assembly=System.ServiceModel" xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:ssa="clr-namespace:System.ServiceModel.Activities;assembly=System.ServiceModel.Activities" xmlns:ssx="clr-namespace:System.ServiceModel.XamlIntegration;assembly=System.ServiceModel" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <p:Sequence DisplayName="PROCESS_ROOT" sad:XamlDebuggerXmlReader.FileName="C:\inetpub\wwwroot\EEQMU_MODEL\EEQMU_MODEL\EEQMU_MODEL_2.xamlx" sap:VirtualizedContainerService.HintSize="495,1029" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+    <p:Sequence.Variables>
+      <p:Variable x:TypeArguments="CorrelationHandle" Name="__handle1" />
+      <p:Variable x:TypeArguments="CorrelationHandle" Name="__handle2" />
+      <p:Variable x:TypeArguments="CorrelationHandle" Name="__handle3" />
+      <p:Variable x:TypeArguments="CorrelationHandle" Name="__handle4" />
+      <p:Variable x:TypeArguments="CorrelationHandle" Name="__handle5" />
+      <p:Variable x:TypeArguments="e:WF_WVLD_WAPPR" Name="EQ_ACTION" />
+      <p:Variable x:TypeArguments="x:String" Name="EQ_OUT" />
+      <p:Variable x:TypeArguments="x:Int32" Name="EQ_ACTION_PROCESS" />
+      <p:Variable x:TypeArguments="CorrelationHandle" Name="__handle6" />
+      <p:Variable x:TypeArguments="s:Int32[]" Name="EQ_LINKED_ACTION_ID" />
+      <p:Variable x:TypeArguments="x:Int32" Name="EQ_LINKED_ACTION_CODE" />
+      <p:Variable x:TypeArguments="x:Int32" Name="EQ_LINKED_ACTION_GONEXT" />
+    </p:Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg3:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Receive x:Name="__ReferenceID108" CanCreateInstance="True" sap:VirtualizedContainerService.HintSize="473,86" OperationName="SUBMIT_ACTION()">
+      <Receive.CorrelationInitializers>
+        <RequestReplyCorrelationInitializer CorrelationHandle="[__handle6]" />
+      </Receive.CorrelationInitializers>
+      <ReceiveMessageContent DeclaredMessageType="e:WF_WVLD_WAPPR">
+        <p:OutArgument x:TypeArguments="e:WF_WVLD_WAPPR">[EQ_ACTION]</p:OutArgument>
+      </ReceiveMessageContent>
+    </Receive>
+    <p:InvokeMethod DisplayName="SupplyConnection" sap:VirtualizedContainerService.HintSize="473,127" MethodName="SetConnection" TargetType="e:OperatorStatic" />
+    <p:InvokeMethod sap:VirtualizedContainerService.HintSize="473,127" MethodName="eqmu_WF_ACTION_PROCESS" TargetType="e1:R1WF">
+      <p:InvokeMethod.Result>
+        <p:OutArgument x:TypeArguments="x:Int32">[EQ_ACTION_PROCESS]</p:OutArgument>
+      </p:InvokeMethod.Result>
+      <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+    </p:InvokeMethod>
+    <p:Switch x:TypeArguments="x:Int32" DisplayName="Process Scope" Expression="[EQ_ACTION_PROCESS]" sap:VirtualizedContainerService.HintSize="473,319">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg3:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <p:Flowchart x:Key="10" DisplayName="INIT" sap:VirtualizedContainerService.HintSize="1379,2089">
+        <p:Flowchart.Variables>
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUS" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_SET" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUS_TO_ASSIGN" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUSUP_OK" />
+        </p:Flowchart.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <av:Point x:Key="ShapeLocation">350,2.5</av:Point>
+            <av:Size x:Key="ShapeSize">60,75</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">380,77.5 380,107.5 380,246.5</av:PointCollection>
+            <x:Double x:Key="Width">1365</x:Double>
+            <x:Double x:Key="Height">2053</x:Double>
+          </scg3:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <p:Flowchart.StartNode>
+          <x:Reference>__ReferenceID25</x:Reference>
+        </p:Flowchart.StartNode>
+        <p:FlowStep x:Name="__ReferenceID25">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">276,246.5</av:Point>
+              <av:Size x:Key="ShapeSize">208,127</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">380,373.5 380,403.5 380,446.5</av:PointCollection>
+            </scg3:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <p:InvokeMethod DisplayName="SupplyConnection" sap:VirtualizedContainerService.HintSize="208,127" MethodName="SetConnection" TargetType="e:OperatorStatic" />
+          <p:FlowStep.Next>
+            <p:FlowStep x:Name="__ReferenceID6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">276,446.5</av:Point>
+                  <av:Size x:Key="ShapeSize">208,127</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">380,573.5 380,603.5 380,642.5</av:PointCollection>
+                </scg3:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <p:InvokeMethod DisplayName="CURRENTSTSATUS" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqme_WF_EQSTATUS" TargetType="e1:R1WF">
+                <p:InvokeMethod.Result>
+                  <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUS]</p:OutArgument>
+                </p:InvokeMethod.Result>
+                <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+              </p:InvokeMethod>
+              <p:FlowStep.Next>
+                <p:FlowDecision x:Name="__ReferenceID7" Condition="[EQ_STATUS &lt;= 100]" sap:VirtualizedContainerService.HintSize="60,75">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">350,642.5</av:Point>
+                      <av:Size x:Key="ShapeSize">60,75</av:Size>
+                      <av:PointCollection x:Key="FalseConnector">410,680 440,680 799,680</av:PointCollection>
+                      <av:PointCollection x:Key="TrueConnector">350,680 177.646793018275,680 177.646793018275,820 266,820</av:PointCollection>
+                    </scg3:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <p:FlowDecision.True>
+                    <p:FlowStep x:Name="__ReferenceID9">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">266,756.5</av:Point>
+                          <av:Size x:Key="ShapeSize">208,127</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">474,820 550,820 550,902.5</av:PointCollection>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <p:InvokeMethod DisplayName="ACTION SET" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_ACTION" TargetType="e1:R1WF">
+                        <p:InvokeMethod.Result>
+                          <p:OutArgument x:TypeArguments="x:Int32">[EQ_SET]</p:OutArgument>
+                        </p:InvokeMethod.Result>
+                        <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                        <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                        <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTOR]</p:InArgument>
+                        <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ASSIGNED]</p:InArgument>
+                        <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.PERFORMED]</p:InArgument>
+                        <p:InArgument x:TypeArguments="x:String">[EQ_ACTION.EQ_TEXT]</p:InArgument>
+                        <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.UID]</p:InArgument>
+                      </p:InvokeMethod>
+                      <p:FlowStep.Next>
+                        <p:FlowDecision x:Name="__ReferenceID10" Condition="[EQ_SET &gt; 0]" sap:VirtualizedContainerService.HintSize="60,75">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">520,902.5</av:Point>
+                              <av:Size x:Key="ShapeSize">60,75</av:Size>
+                              <av:PointCollection x:Key="FalseConnector">580,940 610,940 749,940</av:PointCollection>
+                              <av:PointCollection x:Key="TrueConnector">520,940 150,940 150,986.5</av:PointCollection>
+                            </scg3:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <p:FlowDecision.True>
+                            <p:FlowStep x:Name="__ReferenceID20">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">46,986.5</av:Point>
+                                  <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">254,1050 284,1050 284,1020 359,1020</av:PointCollection>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <p:InvokeMethod DisplayName="LINKED ACTION CHECK" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_GETLINKEDACTION" TargetType="e1:R1WF">
+                                <p:InvokeMethod.Result>
+                                  <p:OutArgument x:TypeArguments="s:Int32[]">[EQ_LINKED_ACTION_ID]</p:OutArgument>
+                                </p:InvokeMethod.Result>
+                                <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                              </p:InvokeMethod>
+                              <p:FlowStep.Next>
+                                <p:FlowStep x:Name="__ReferenceID21">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <av:Point x:Key="ShapeLocation">359,991.5</av:Point>
+                                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                      <av:PointCollection x:Key="ConnectorLocation">480,1048.5 480,1065.5</av:PointCollection>
+                                    </scg3:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <p:Assign DisplayName="LINKED ATION FIRST GO" sap:VirtualizedContainerService.HintSize="242,57">
+                                    <p:Assign.To>
+                                      <p:OutArgument x:TypeArguments="x:Int32">[EQ_LINKED_ACTION_GONEXT]</p:OutArgument>
+                                    </p:Assign.To>
+                                    <p:Assign.Value>
+                                      <p:InArgument x:TypeArguments="x:Int32">1</p:InArgument>
+                                    </p:Assign.Value>
+                                  </p:Assign>
+                                  <p:FlowStep.Next>
+                                    <p:FlowStep x:Name="__ReferenceID22">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <av:Point x:Key="ShapeLocation">380,1065.5</av:Point>
+                                          <av:Size x:Key="ShapeSize">200,49</av:Size>
+                                          <av:PointCollection x:Key="ConnectorLocation">480,1114.5 480,1132.5</av:PointCollection>
+                                        </scg3:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <p:ForEach x:TypeArguments="x:Int32" DisplayName="ForEac LINKED ACTION CODE" sap:VirtualizedContainerService.HintSize="200,49" Values="[EQ_LINKED_ACTION_ID]">
+                                        <p:ActivityAction x:TypeArguments="x:Int32">
+                                          <p:ActivityAction.Argument>
+                                            <p:DelegateInArgument x:TypeArguments="x:Int32" Name="item" />
+                                          </p:ActivityAction.Argument>
+                                          <p:Sequence DisplayName="LINKED_ACTION_SEQ" sap:VirtualizedContainerService.HintSize="264,270">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg3:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <p:Assign DisplayName="EQ LINKED ACTION CODE" sap:VirtualizedContainerService.HintSize="242,57">
+                                              <p:Assign.To>
+                                                <p:OutArgument x:TypeArguments="x:Int32">[EQ_LINKED_ACTION_CODE]</p:OutArgument>
+                                              </p:Assign.To>
+                                              <p:Assign.Value>
+                                                <p:InArgument x:TypeArguments="x:Int32">[item]</p:InArgument>
+                                              </p:Assign.Value>
+                                            </p:Assign>
+                                            <p:Flowchart DisplayName="LINKED ACTION SUB PROC" sap:VirtualizedContainerService.HintSize="242,49">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <av:Point x:Key="ShapeLocation">260,12.5</av:Point>
+                                                  <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                  <x:Double x:Key="Width">858</x:Double>
+                                                  <av:PointCollection x:Key="ConnectorLocation">290,87.5 290,117.5 290,142.5</av:PointCollection>
+                                                  <x:Double x:Key="Height">880.7786666666666</x:Double>
+                                                </scg3:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <p:Flowchart.StartNode>
+                                                <x:Reference>__ReferenceID5</x:Reference>
+                                              </p:Flowchart.StartNode>
+                                              <p:FlowDecision x:Name="__ReferenceID5" Condition="[EQ_LINKED_ACTION_CODE &gt; 0]" sap:VirtualizedContainerService.HintSize="60,75">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <av:Point x:Key="ShapeLocation">260,142.5</av:Point>
+                                                    <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                    <av:PointCollection x:Key="TrueConnector">260,180 220,180 220,282.5</av:PointCollection>
+                                                  </scg3:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <p:FlowDecision.True>
+                                                  <p:FlowDecision x:Name="__ReferenceID1" Condition="[EQ_LINKED_ACTION_GONEXT = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <av:Point x:Key="ShapeLocation">190,282.5</av:Point>
+                                                        <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                        <av:PointCollection x:Key="TrueConnector">190,320 160,320 160,470 196,470</av:PointCollection>
+                                                      </scg3:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <p:FlowDecision.True>
+                                                      <p:FlowStep x:Name="__ReferenceID0">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <av:Point x:Key="ShapeLocation">196,406.5</av:Point>
+                                                            <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                                            <av:PointCollection x:Key="ConnectorLocation">404,470 500,470 500,562.5</av:PointCollection>
+                                                          </scg3:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <p:InvokeMethod DisplayName="LINKED ACTION SET" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_ACTION" TargetType="e1:R1WF">
+                                                          <p:InvokeMethod.Result>
+                                                            <p:OutArgument x:TypeArguments="x:Int32">[EQ_SET]</p:OutArgument>
+                                                          </p:InvokeMethod.Result>
+                                                          <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                                          <p:InArgument x:TypeArguments="x:Int32">[EQ_LINKED_ACTION_CODE]</p:InArgument>
+                                                          <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTOR]</p:InArgument>
+                                                          <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ASSIGNED]</p:InArgument>
+                                                          <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.PERFORMED]</p:InArgument>
+                                                          <p:InArgument x:TypeArguments="x:String">[EQ_ACTION.EQ_TEXT]</p:InArgument>
+                                                          <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.UID]</p:InArgument>
+                                                        </p:InvokeMethod>
+                                                        <p:FlowStep.Next>
+                                                          <p:FlowDecision x:Name="__ReferenceID2" Condition="[EQ_SET &gt; 0]" sap:VirtualizedContainerService.HintSize="60,75">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <av:Point x:Key="ShapeLocation">470,562.5</av:Point>
+                                                                <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                                <av:PointCollection x:Key="TrueConnector">470,600 361,600 361,649</av:PointCollection>
+                                                                <av:PointCollection x:Key="FalseConnector">530,600 690,600 690,641.5</av:PointCollection>
+                                                              </scg3:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <p:FlowDecision.True>
+                                                              <p:FlowStep x:Name="__ReferenceID3">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <av:Point x:Key="ShapeLocation">240,649</av:Point>
+                                                                    <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                                  </scg3:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <p:Assign DisplayName="GO NEXT OK" sap:VirtualizedContainerService.HintSize="242,57">
+                                                                  <p:Assign.To>
+                                                                    <p:OutArgument x:TypeArguments="x:Int32">[EQ_LINKED_ACTION_GONEXT]</p:OutArgument>
+                                                                  </p:Assign.To>
+                                                                  <p:Assign.Value>
+                                                                    <p:InArgument x:TypeArguments="x:Int32">1</p:InArgument>
+                                                                  </p:Assign.Value>
+                                                                </p:Assign>
+                                                              </p:FlowStep>
+                                                            </p:FlowDecision.True>
+                                                            <p:FlowDecision.False>
+                                                              <p:FlowStep x:Name="__ReferenceID4">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <av:Point x:Key="ShapeLocation">569,641.5</av:Point>
+                                                                    <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                                  </scg3:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <p:Assign DisplayName="GO NEXT FAIL" sap:VirtualizedContainerService.HintSize="242,57">
+                                                                  <p:Assign.To>
+                                                                    <p:OutArgument x:TypeArguments="x:Int32">[EQ_LINKED_ACTION_GONEXT]</p:OutArgument>
+                                                                  </p:Assign.To>
+                                                                  <p:Assign.Value>
+                                                                    <p:InArgument x:TypeArguments="x:Int32">0</p:InArgument>
+                                                                  </p:Assign.Value>
+                                                                </p:Assign>
+                                                              </p:FlowStep>
+                                                            </p:FlowDecision.False>
+                                                          </p:FlowDecision>
+                                                        </p:FlowStep.Next>
+                                                      </p:FlowStep>
+                                                    </p:FlowDecision.True>
+                                                  </p:FlowDecision>
+                                                </p:FlowDecision.True>
+                                              </p:FlowDecision>
+                                              <x:Reference>__ReferenceID0</x:Reference>
+                                              <x:Reference>__ReferenceID1</x:Reference>
+                                              <x:Reference>__ReferenceID2</x:Reference>
+                                              <x:Reference>__ReferenceID3</x:Reference>
+                                              <x:Reference>__ReferenceID4</x:Reference>
+                                            </p:Flowchart>
+                                          </p:Sequence>
+                                        </p:ActivityAction>
+                                      </p:ForEach>
+                                      <p:FlowStep.Next>
+                                        <p:FlowDecision x:Name="__ReferenceID23" Condition="[EQ_SET &gt; 0]" sap:VirtualizedContainerService.HintSize="60,75">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <av:Point x:Key="ShapeLocation">450,1132.5</av:Point>
+                                              <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                              <av:PointCollection x:Key="FalseConnector">510,1170 540,1170 739,1170</av:PointCollection>
+                                              <av:PointCollection x:Key="TrueConnector">450,1170 410,1170 410,1242.5</av:PointCollection>
+                                            </scg3:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <p:FlowDecision.True>
+                                            <p:FlowDecision x:Name="__ReferenceID18" Condition="[EQ_ACTION.PERFORMED = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <av:Point x:Key="ShapeLocation">380,1242.5</av:Point>
+                                                  <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                  <av:PointCollection x:Key="TrueConnector">380,1280 120,1280 120,1326.5</av:PointCollection>
+                                                  <av:PointCollection x:Key="FalseConnector">440,1280 470,1280 749,1280</av:PointCollection>
+                                                </scg3:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <p:FlowDecision.True>
+                                                <p:FlowStep x:Name="__ReferenceID12">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <av:Point x:Key="ShapeLocation">16,1326.5</av:Point>
+                                                      <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                                      <av:PointCollection x:Key="ConnectorLocation">120,1453.5 120,1490 286,1490</av:PointCollection>
+                                                    </scg3:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <p:InvokeMethod DisplayName="STATUSTOASSIGN" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_GETASSIGNSTT" TargetType="e1:R1WF">
+                                                    <p:InvokeMethod.Result>
+                                                      <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUS_TO_ASSIGN]</p:OutArgument>
+                                                    </p:InvokeMethod.Result>
+                                                    <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                                                  </p:InvokeMethod>
+                                                  <p:FlowStep.Next>
+                                                    <p:FlowStep x:Name="__ReferenceID13">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <av:Point x:Key="ShapeLocation">286,1426.5</av:Point>
+                                                          <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                                          <av:PointCollection x:Key="ConnectorLocation">390,1553.5 390,1583.5 390,1602.5</av:PointCollection>
+                                                        </scg3:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <p:InvokeMethod DisplayName="EQSTATUSUP" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_EQSTATUSUP" TargetType="e1:R1WF">
+                                                        <p:InvokeMethod.Result>
+                                                          <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUSUP_OK]</p:OutArgument>
+                                                        </p:InvokeMethod.Result>
+                                                        <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                                        <p:InArgument x:TypeArguments="x:Int32">[EQ_STATUS_TO_ASSIGN]</p:InArgument>
+                                                      </p:InvokeMethod>
+                                                      <p:FlowStep.Next>
+                                                        <p:FlowDecision x:Name="__ReferenceID14" Condition="[EQ_STATUSUP_OK = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <av:Point x:Key="ShapeLocation">360,1602.5</av:Point>
+                                                              <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                              <av:PointCollection x:Key="TrueConnector">360,1640 330,1640 251,1640</av:PointCollection>
+                                                              <av:PointCollection x:Key="FalseConnector">420,1640 450,1640 526,1640</av:PointCollection>
+                                                            </scg3:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <p:FlowDecision.True>
+                                                            <p:FlowStep x:Name="__ReferenceID16">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <av:Point x:Key="ShapeLocation">9,1611.5</av:Point>
+                                                                  <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                                  <av:PointCollection x:Key="ConnectorLocation">130,1368.5 130,1527.60417574371 390,1527.60417574371 390,1577</av:PointCollection>
+                                                                </scg3:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <p:Assign DisplayName="INITIATION=OK" sap:VirtualizedContainerService.HintSize="242,57">
+                                                                <p:Assign.To>
+                                                                  <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                                </p:Assign.To>
+                                                                <p:Assign.Value>
+                                                                  <p:InArgument x:TypeArguments="x:String">1000</p:InArgument>
+                                                                </p:Assign.Value>
+                                                              </p:Assign>
+                                                            </p:FlowStep>
+                                                          </p:FlowDecision.True>
+                                                          <p:FlowDecision.False>
+                                                            <p:FlowStep x:Name="__ReferenceID15">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <av:Point x:Key="ShapeLocation">526,1576.5</av:Point>
+                                                                  <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                                                  <av:PointCollection x:Key="ConnectorLocation">630,1703.5 630,1733.5 630,1781.5</av:PointCollection>
+                                                                </scg3:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <p:InvokeMethod DisplayName="STATUSUP_ROLLBACK" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_LAST_ACTION_ROLLBACK" TargetType="e1:R1WF">
+                                                                <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                                                <p:InArgument x:TypeArguments="x:Int32">[EQ_SET]</p:InArgument>
+                                                              </p:InvokeMethod>
+                                                              <p:FlowStep.Next>
+                                                                <p:FlowStep x:Name="__ReferenceID17">
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <av:Point x:Key="ShapeLocation">509,1781.5</av:Point>
+                                                                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                                      <av:PointCollection x:Key="ConnectorLocation">620,1498.5 620,1528.5 390,1528.5 390,1577</av:PointCollection>
+                                                                    </scg3:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                  <p:Assign DisplayName="STATUSUP FAILED AND ROLLBACK" sap:VirtualizedContainerService.HintSize="242,57">
+                                                                    <p:Assign.To>
+                                                                      <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                                    </p:Assign.To>
+                                                                    <p:Assign.Value>
+                                                                      <p:InArgument x:TypeArguments="x:String">INITE1000</p:InArgument>
+                                                                    </p:Assign.Value>
+                                                                  </p:Assign>
+                                                                </p:FlowStep>
+                                                              </p:FlowStep.Next>
+                                                            </p:FlowStep>
+                                                          </p:FlowDecision.False>
+                                                        </p:FlowDecision>
+                                                      </p:FlowStep.Next>
+                                                    </p:FlowStep>
+                                                  </p:FlowStep.Next>
+                                                </p:FlowStep>
+                                              </p:FlowDecision.True>
+                                              <p:FlowDecision.False>
+                                                <p:FlowStep x:Name="__ReferenceID19">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <av:Point x:Key="ShapeLocation">749,1251.5</av:Point>
+                                                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                    </scg3:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <p:Assign DisplayName="NO STATUS CHANGE" sap:VirtualizedContainerService.HintSize="242,57">
+                                                    <p:Assign.To>
+                                                      <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                    </p:Assign.To>
+                                                    <p:Assign.Value>
+                                                      <p:InArgument x:TypeArguments="x:String">1000</p:InArgument>
+                                                    </p:Assign.Value>
+                                                  </p:Assign>
+                                                </p:FlowStep>
+                                              </p:FlowDecision.False>
+                                            </p:FlowDecision>
+                                          </p:FlowDecision.True>
+                                          <p:FlowDecision.False>
+                                            <p:FlowStep x:Name="__ReferenceID24">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <av:Point x:Key="ShapeLocation">739,1141.5</av:Point>
+                                                  <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                </scg3:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <p:Assign sap:VirtualizedContainerService.HintSize="242,57">
+                                                <p:Assign.To>
+                                                  <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                </p:Assign.To>
+                                                <p:Assign.Value>
+                                                  <p:InArgument x:TypeArguments="x:String">INTE220</p:InArgument>
+                                                </p:Assign.Value>
+                                              </p:Assign>
+                                            </p:FlowStep>
+                                          </p:FlowDecision.False>
+                                        </p:FlowDecision>
+                                      </p:FlowStep.Next>
+                                    </p:FlowStep>
+                                  </p:FlowStep.Next>
+                                </p:FlowStep>
+                              </p:FlowStep.Next>
+                            </p:FlowStep>
+                          </p:FlowDecision.True>
+                          <p:FlowDecision.False>
+                            <p:FlowStep x:Name="__ReferenceID11">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">749,911.5</av:Point>
+                                  <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">780,998.5 780,1620 517.5,1620</av:PointCollection>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <p:Assign DisplayName="ACTION FAILED" sap:VirtualizedContainerService.HintSize="242,57">
+                                <p:Assign.To>
+                                  <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                </p:Assign.To>
+                                <p:Assign.Value>
+                                  <p:InArgument x:TypeArguments="x:String">INITE200</p:InArgument>
+                                </p:Assign.Value>
+                              </p:Assign>
+                            </p:FlowStep>
+                          </p:FlowDecision.False>
+                        </p:FlowDecision>
+                      </p:FlowStep.Next>
+                    </p:FlowStep>
+                  </p:FlowDecision.True>
+                  <p:FlowDecision.False>
+                    <p:FlowStep x:Name="__ReferenceID8">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">799,651.5</av:Point>
+                          <av:Size x:Key="ShapeSize">242,57</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">920,708.5 920,1620 517.5,1620</av:PointCollection>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <p:Assign DisplayName="EQ IS NOT IN INITIAL STATE" sap:VirtualizedContainerService.HintSize="242,57">
+                        <p:Assign.To>
+                          <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                        </p:Assign.To>
+                        <p:Assign.Value>
+                          <p:InArgument x:TypeArguments="x:String">INITE100</p:InArgument>
+                        </p:Assign.Value>
+                      </p:Assign>
+                    </p:FlowStep>
+                  </p:FlowDecision.False>
+                </p:FlowDecision>
+              </p:FlowStep.Next>
+            </p:FlowStep>
+          </p:FlowStep.Next>
+        </p:FlowStep>
+        <x:Reference>__ReferenceID6</x:Reference>
+        <x:Reference>__ReferenceID7</x:Reference>
+        <x:Reference>__ReferenceID8</x:Reference>
+        <x:Reference>__ReferenceID9</x:Reference>
+        <x:Reference>__ReferenceID10</x:Reference>
+        <x:Reference>__ReferenceID11</x:Reference>
+        <x:Reference>__ReferenceID12</x:Reference>
+        <x:Reference>__ReferenceID13</x:Reference>
+        <x:Reference>__ReferenceID14</x:Reference>
+        <x:Reference>__ReferenceID15</x:Reference>
+        <x:Reference>__ReferenceID16</x:Reference>
+        <x:Reference>__ReferenceID17</x:Reference>
+        <x:Reference>__ReferenceID18</x:Reference>
+        <x:Reference>__ReferenceID19</x:Reference>
+        <x:Reference>__ReferenceID20</x:Reference>
+        <x:Reference>__ReferenceID21</x:Reference>
+        <x:Reference>__ReferenceID22</x:Reference>
+        <x:Reference>__ReferenceID23</x:Reference>
+        <x:Reference>__ReferenceID24</x:Reference>
+      </p:Flowchart>
+      <p:Flowchart x:Key="20" DisplayName="REVIEW" sap:VirtualizedContainerService.HintSize="1379,100">
+        <p:Flowchart.Variables>
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUS" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_ACTION_IS_ACTIVE" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUS_TO_ASSIGN" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_ACTOR_VALID" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_SET" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUSUP_OK" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUSUP_ROLLBACK" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_ACTOR_FM" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_FACID" />
+        </p:Flowchart.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+            <av:Size x:Key="ShapeSize">60,75</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 300,256.5</av:PointCollection>
+            <x:Double x:Key="Height">2316.778666666667</x:Double>
+            <x:Double x:Key="Width">1290</x:Double>
+          </scg3:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <p:Flowchart.StartNode>
+          <x:Reference>__ReferenceID47</x:Reference>
+        </p:Flowchart.StartNode>
+        <p:FlowStep x:Name="__ReferenceID47">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">196,256.5</av:Point>
+              <av:Size x:Key="ShapeSize">208,127</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">300,383.5 300,413.5 300,416.5</av:PointCollection>
+            </scg3:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <p:InvokeMethod DisplayName="SupplyConnection" sap:VirtualizedContainerService.HintSize="208,127" MethodName="SetConnection" TargetType="e:OperatorStatic" />
+          <p:FlowStep.Next>
+            <p:FlowStep x:Name="__ReferenceID26">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">196,416.5</av:Point>
+                  <av:Size x:Key="ShapeSize">208,127</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">404,480 434,480 449,480</av:PointCollection>
+                </scg3:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <p:InvokeMethod DisplayName="CURRENTSTSATUS" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqme_WF_EQSTATUS" TargetType="e1:R1WF">
+                <p:InvokeMethod.Result>
+                  <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUS]</p:OutArgument>
+                </p:InvokeMethod.Result>
+                <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+              </p:InvokeMethod>
+              <p:FlowStep.Next>
+                <p:FlowStep x:Name="__ReferenceID44">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">449,451.5</av:Point>
+                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">570,508.5 570,538.5 570,622.5</av:PointCollection>
+                    </scg3:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <p:Assign sap:VirtualizedContainerService.HintSize="242,57">
+                    <p:Assign.To>
+                      <p:OutArgument x:TypeArguments="x:Int32">[EQ_ACTION_IS_ACTIVE]</p:OutArgument>
+                    </p:Assign.To>
+                    <p:Assign.Value>
+                      <p:InArgument x:TypeArguments="x:Int32">1</p:InArgument>
+                    </p:Assign.Value>
+                  </p:Assign>
+                  <p:FlowStep.Next>
+                    <p:FlowDecision x:Name="__ReferenceID27" Condition="[EQ_ACTION_IS_ACTIVE = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">540,622.5</av:Point>
+                          <av:Size x:Key="ShapeSize">60,75</av:Size>
+                          <av:PointCollection x:Key="FalseConnector">600,660 630,660 689,660</av:PointCollection>
+                          <av:PointCollection x:Key="TrueConnector">540,660 510,660 394,660</av:PointCollection>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <p:FlowDecision.True>
+                        <p:FlowStep x:Name="__ReferenceID29">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">186,596.5</av:Point>
+                              <av:Size x:Key="ShapeSize">208,127</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">290,723.5 290,753.5 290,792.5</av:PointCollection>
+                            </scg3:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <p:InvokeMethod DisplayName="STATUSTOASSIGN" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_GETASSIGNSTT" TargetType="e1:R1WF">
+                            <p:InvokeMethod.Result>
+                              <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUS_TO_ASSIGN]</p:OutArgument>
+                            </p:InvokeMethod.Result>
+                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                          </p:InvokeMethod>
+                          <p:FlowStep.Next>
+                            <p:FlowDecision x:Name="__ReferenceID30" Condition="[EQ_STATUS_TO_ASSIGN &gt; -1]" sap:VirtualizedContainerService.HintSize="60,75">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">260,792.5</av:Point>
+                                  <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                  <av:PointCollection x:Key="TrueConnector">260,830 230,830 214,830</av:PointCollection>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <p:FlowDecision.True>
+                                <p:FlowStep x:Name="__ReferenceID31">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <av:Point x:Key="ShapeLocation">6,766.5</av:Point>
+                                      <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                      <av:PointCollection x:Key="ConnectorLocation">110,893.5 110,923.5 280,923.5 280,942.5</av:PointCollection>
+                                    </scg3:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <p:InvokeMethod DisplayName="CHECKACTOR " sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_ACTOR_CHECK" TargetType="e1:R1WF">
+                                    <p:InvokeMethod.Result>
+                                      <p:OutArgument x:TypeArguments="x:Int32">[EQ_ACTOR_VALID]</p:OutArgument>
+                                    </p:InvokeMethod.Result>
+                                    <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                                    <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTOR]</p:InArgument>
+                                  </p:InvokeMethod>
+                                  <p:FlowStep.Next>
+                                    <p:FlowDecision x:Name="__ReferenceID32" Condition="[EQ_ACTOR_VALID = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <av:Point x:Key="ShapeLocation">250,942.5</av:Point>
+                                          <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                          <av:PointCollection x:Key="FalseConnector">310,980 340,980 979,980</av:PointCollection>
+                                          <av:PointCollection x:Key="TrueConnector">250,980 180,980 180,1056.5</av:PointCollection>
+                                        </scg3:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <p:FlowDecision.True>
+                                        <p:FlowStep x:Name="__ReferenceID34">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <av:Point x:Key="ShapeLocation">76,1056.5</av:Point>
+                                              <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                              <av:PointCollection x:Key="ConnectorLocation">180,1183.5 180,1213.5 265,1213.5 265,1282.5</av:PointCollection>
+                                            </scg3:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <p:InvokeMethod DisplayName="ACTION SET" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_ACTION" TargetType="e1:R1WF">
+                                            <p:InvokeMethod.Result>
+                                              <p:OutArgument x:TypeArguments="x:Int32">[EQ_SET]</p:OutArgument>
+                                            </p:InvokeMethod.Result>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTOR]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ASSIGNED]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.PERFORMED]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:String">[EQ_ACTION.EQ_TEXT]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.UID]</p:InArgument>
+                                          </p:InvokeMethod>
+                                          <p:FlowStep.Next>
+                                            <p:FlowDecision x:Name="__ReferenceID45" Condition="[EQ_SET &gt; 0]" sap:VirtualizedContainerService.HintSize="60,75">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <av:Point x:Key="ShapeLocation">250,1282.5</av:Point>
+                                                  <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                  <av:PointCollection x:Key="TrueConnector">250,1320 240,1320 240,1682.5 450,1682.5 450,1712.5</av:PointCollection>
+                                                  <av:PointCollection x:Key="FalseConnector">310,1320 340,1320 340,1310 749,1310</av:PointCollection>
+                                                </scg3:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <p:FlowDecision.True>
+                                                <p:FlowDecision x:Name="__ReferenceID35" Condition="[EQ_SET &gt; 0]" sap:VirtualizedContainerService.HintSize="60,75">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <av:Point x:Key="ShapeLocation">420,1712.5</av:Point>
+                                                      <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                      <av:PointCollection x:Key="FalseConnector">480,1750 510,1750 999,1750</av:PointCollection>
+                                                      <av:PointCollection x:Key="TrueConnector">420,1750 180,1750 180,1792.5</av:PointCollection>
+                                                    </scg3:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <p:FlowDecision.True>
+                                                    <p:FlowDecision x:Name="__ReferenceID42" Condition="[EQ_ACTION.PERFORMED = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <av:Point x:Key="ShapeLocation">150,1792.5</av:Point>
+                                                          <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                          <av:PointCollection x:Key="TrueConnector">150,1830 140,1830 140,1926.5</av:PointCollection>
+                                                          <av:PointCollection x:Key="FalseConnector">210,1830 240,1830 999,1830</av:PointCollection>
+                                                        </scg3:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <p:FlowDecision.True>
+                                                        <p:FlowStep x:Name="__ReferenceID36">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <av:Point x:Key="ShapeLocation">36,1926.5</av:Point>
+                                                              <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                                              <av:PointCollection x:Key="ConnectorLocation">244,1990 690,1990 690,2072.5</av:PointCollection>
+                                                            </scg3:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <p:InvokeMethod DisplayName="EQSTATUSUP" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_EQSTATUSUP" TargetType="e1:R1WF">
+                                                            <p:InvokeMethod.Result>
+                                                              <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUSUP_OK]</p:OutArgument>
+                                                            </p:InvokeMethod.Result>
+                                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_STATUS_TO_ASSIGN]</p:InArgument>
+                                                          </p:InvokeMethod>
+                                                          <p:FlowStep.Next>
+                                                            <p:FlowDecision x:Name="__ReferenceID38" Condition="[EQ_STATUSUP_OK = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <av:Point x:Key="ShapeLocation">660,2072.5</av:Point>
+                                                                  <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                                  <av:PointCollection x:Key="FalseConnector">720,2110 750,2110 1006,2110</av:PointCollection>
+                                                                  <av:PointCollection x:Key="TrueConnector">660,2110 630,2110 491,2110</av:PointCollection>
+                                                                </scg3:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <p:FlowDecision.True>
+                                                                <p:FlowStep x:Name="__ReferenceID39">
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <av:Point x:Key="ShapeLocation">249,2081.5</av:Point>
+                                                                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                                      <av:PointCollection x:Key="ConnectorLocation">230,1568.5 230,1860 332.5,1860</av:PointCollection>
+                                                                    </scg3:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                  <p:Assign DisplayName="STATUSUP = OK" sap:VirtualizedContainerService.HintSize="242,57">
+                                                                    <p:Assign.To>
+                                                                      <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                                    </p:Assign.To>
+                                                                    <p:Assign.Value>
+                                                                      <p:InArgument x:TypeArguments="x:String">1000</p:InArgument>
+                                                                    </p:Assign.Value>
+                                                                  </p:Assign>
+                                                                </p:FlowStep>
+                                                              </p:FlowDecision.True>
+                                                              <p:FlowDecision.False>
+                                                                <p:FlowStep x:Name="__ReferenceID40">
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <av:Point x:Key="ShapeLocation">1006,2046.5</av:Point>
+                                                                      <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                                                      <av:PointCollection x:Key="ConnectorLocation">1110,2173.5 1110,2203.5 1110,2241.5</av:PointCollection>
+                                                                    </scg3:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                  <p:InvokeMethod DisplayName="STATUSUP_ROLLBACK" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_LAST_ACTION_ROLLBACK" TargetType="e1:R1WF">
+                                                                    <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                                                    <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                                                                  </p:InvokeMethod>
+                                                                  <p:FlowStep.Next>
+                                                                    <p:FlowStep x:Name="__ReferenceID41">
+                                                                      <sap:WorkflowViewStateService.ViewState>
+                                                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                          <av:Point x:Key="ShapeLocation">989,2241.5</av:Point>
+                                                                          <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                                          <av:PointCollection x:Key="ConnectorLocation">620,1788.5 620,1860 587.5,1860</av:PointCollection>
+                                                                        </scg3:Dictionary>
+                                                                      </sap:WorkflowViewStateService.ViewState>
+                                                                      <p:Assign DisplayName="STATUSUP FAILED AND ACTION ROLLBACK" sap:VirtualizedContainerService.HintSize="242,57">
+                                                                        <p:Assign.To>
+                                                                          <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                                        </p:Assign.To>
+                                                                        <p:Assign.Value>
+                                                                          <p:InArgument x:TypeArguments="x:String">RVE1000</p:InArgument>
+                                                                        </p:Assign.Value>
+                                                                      </p:Assign>
+                                                                    </p:FlowStep>
+                                                                  </p:FlowStep.Next>
+                                                                </p:FlowStep>
+                                                              </p:FlowDecision.False>
+                                                            </p:FlowDecision>
+                                                          </p:FlowStep.Next>
+                                                        </p:FlowStep>
+                                                      </p:FlowDecision.True>
+                                                      <p:FlowDecision.False>
+                                                        <p:FlowStep x:Name="__ReferenceID43">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <av:Point x:Key="ShapeLocation">999,1801.5</av:Point>
+                                                              <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                            </scg3:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <p:Assign DisplayName="ACTION OK - NO STAT CHANGE" sap:VirtualizedContainerService.HintSize="242,57">
+                                                            <p:Assign.To>
+                                                              <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                            </p:Assign.To>
+                                                            <p:Assign.Value>
+                                                              <p:InArgument x:TypeArguments="x:String">1000</p:InArgument>
+                                                            </p:Assign.Value>
+                                                          </p:Assign>
+                                                        </p:FlowStep>
+                                                      </p:FlowDecision.False>
+                                                    </p:FlowDecision>
+                                                  </p:FlowDecision.True>
+                                                  <p:FlowDecision.False>
+                                                    <p:FlowStep x:Name="__ReferenceID37">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <av:Point x:Key="ShapeLocation">999,1721.5</av:Point>
+                                                          <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                        </scg3:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <p:Assign DisplayName="ACTION SET FAILED" sap:VirtualizedContainerService.HintSize="242,57">
+                                                        <p:Assign.To>
+                                                          <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                        </p:Assign.To>
+                                                        <p:Assign.Value>
+                                                          <p:InArgument x:TypeArguments="x:String">RVE300</p:InArgument>
+                                                        </p:Assign.Value>
+                                                      </p:Assign>
+                                                    </p:FlowStep>
+                                                  </p:FlowDecision.False>
+                                                </p:FlowDecision>
+                                              </p:FlowDecision.True>
+                                              <p:FlowDecision.False>
+                                                <p:FlowStep x:Name="__ReferenceID46">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <av:Point x:Key="ShapeLocation">749,1281.5</av:Point>
+                                                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                    </scg3:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <p:Assign sap:VirtualizedContainerService.HintSize="242,57">
+                                                    <p:Assign.To>
+                                                      <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                    </p:Assign.To>
+                                                    <p:Assign.Value>
+                                                      <p:InArgument x:TypeArguments="x:String">RVE250</p:InArgument>
+                                                    </p:Assign.Value>
+                                                  </p:Assign>
+                                                </p:FlowStep>
+                                              </p:FlowDecision.False>
+                                            </p:FlowDecision>
+                                          </p:FlowStep.Next>
+                                        </p:FlowStep>
+                                      </p:FlowDecision.True>
+                                      <p:FlowDecision.False>
+                                        <p:FlowStep x:Name="__ReferenceID33">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <av:Point x:Key="ShapeLocation">979,951.5</av:Point>
+                                              <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                            </scg3:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <p:Assign DisplayName="ERROR-200-ACTOR IS NOT VALID" sap:VirtualizedContainerService.HintSize="242,57">
+                                            <p:Assign.To>
+                                              <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                            </p:Assign.To>
+                                            <p:Assign.Value>
+                                              <p:InArgument x:TypeArguments="x:String">RVE200</p:InArgument>
+                                            </p:Assign.Value>
+                                          </p:Assign>
+                                        </p:FlowStep>
+                                      </p:FlowDecision.False>
+                                    </p:FlowDecision>
+                                  </p:FlowStep.Next>
+                                </p:FlowStep>
+                              </p:FlowDecision.True>
+                            </p:FlowDecision>
+                          </p:FlowStep.Next>
+                        </p:FlowStep>
+                      </p:FlowDecision.True>
+                      <p:FlowDecision.False>
+                        <p:FlowStep x:Name="__ReferenceID28">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">689,631.5</av:Point>
+                              <av:Size x:Key="ShapeSize">242,57</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">810,688.5 810,1860 587.5,1860</av:PointCollection>
+                            </scg3:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <p:Assign DisplayName="ERROR100-ACTION NOT ALLOWED" sap:VirtualizedContainerService.HintSize="242,57">
+                            <p:Assign.To>
+                              <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                            </p:Assign.To>
+                            <p:Assign.Value>
+                              <p:InArgument x:TypeArguments="x:String">RVE100</p:InArgument>
+                            </p:Assign.Value>
+                          </p:Assign>
+                        </p:FlowStep>
+                      </p:FlowDecision.False>
+                    </p:FlowDecision>
+                  </p:FlowStep.Next>
+                </p:FlowStep>
+              </p:FlowStep.Next>
+            </p:FlowStep>
+          </p:FlowStep.Next>
+        </p:FlowStep>
+        <x:Reference>__ReferenceID26</x:Reference>
+        <x:Reference>__ReferenceID27</x:Reference>
+        <x:Reference>__ReferenceID28</x:Reference>
+        <x:Reference>__ReferenceID29</x:Reference>
+        <x:Reference>__ReferenceID30</x:Reference>
+        <x:Reference>__ReferenceID31</x:Reference>
+        <x:Reference>__ReferenceID32</x:Reference>
+        <x:Reference>__ReferenceID33</x:Reference>
+        <x:Reference>__ReferenceID34</x:Reference>
+        <x:Reference>__ReferenceID35</x:Reference>
+        <x:Reference>__ReferenceID36</x:Reference>
+        <x:Reference>__ReferenceID37</x:Reference>
+        <x:Reference>__ReferenceID38</x:Reference>
+        <x:Reference>__ReferenceID39</x:Reference>
+        <x:Reference>__ReferenceID40</x:Reference>
+        <x:Reference>__ReferenceID41</x:Reference>
+        <x:Reference>__ReferenceID42</x:Reference>
+        <x:Reference>__ReferenceID43</x:Reference>
+        <x:Reference>__ReferenceID44</x:Reference>
+        <x:Reference>__ReferenceID45</x:Reference>
+        <x:Reference>__ReferenceID46</x:Reference>
+      </p:Flowchart>
+      <p:Flowchart x:Key="30" DisplayName="VERIFY" sap:VirtualizedContainerService.HintSize="1378,100">
+        <p:Flowchart.Variables>
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUS" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_ACTION_IS_ACTIVE" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUS_TO_ASSIGN" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_ACTOR_VALID" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_SET" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUSUP_OK" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUSUP_ROLLBACK" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_ACTOR_FM" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_FACID" />
+        </p:Flowchart.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+            <av:Size x:Key="ShapeSize">60,75</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 300,256.5</av:PointCollection>
+            <x:Double x:Key="Height">2316.778666666667</x:Double>
+            <x:Double x:Key="Width">1290</x:Double>
+          </scg3:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <p:Flowchart.StartNode>
+          <x:Reference>__ReferenceID67</x:Reference>
+        </p:Flowchart.StartNode>
+        <p:FlowStep x:Name="__ReferenceID67">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">196,256.5</av:Point>
+              <av:Size x:Key="ShapeSize">208,127</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">300,383.5 300,413.5 300,416.5</av:PointCollection>
+            </scg3:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <p:InvokeMethod DisplayName="SupplyConnection" sap:VirtualizedContainerService.HintSize="208,127" MethodName="SetConnection" TargetType="e:OperatorStatic" />
+          <p:FlowStep.Next>
+            <p:FlowStep x:Name="__ReferenceID48">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">196,416.5</av:Point>
+                  <av:Size x:Key="ShapeSize">208,127</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">404,480 434,480 449,480</av:PointCollection>
+                </scg3:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <p:InvokeMethod DisplayName="CURRENTSTSATUS" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqme_WF_EQSTATUS" TargetType="e1:R1WF">
+                <p:InvokeMethod.Result>
+                  <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUS]</p:OutArgument>
+                </p:InvokeMethod.Result>
+                <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+              </p:InvokeMethod>
+              <p:FlowStep.Next>
+                <p:FlowStep x:Name="__ReferenceID66">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">449,451.5</av:Point>
+                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">570,508.5 570,538.5 570,622.5</av:PointCollection>
+                    </scg3:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <p:Assign sap:VirtualizedContainerService.HintSize="242,57">
+                    <p:Assign.To>
+                      <p:OutArgument x:TypeArguments="x:Int32">[EQ_ACTION_IS_ACTIVE]</p:OutArgument>
+                    </p:Assign.To>
+                    <p:Assign.Value>
+                      <p:InArgument x:TypeArguments="x:Int32">1</p:InArgument>
+                    </p:Assign.Value>
+                  </p:Assign>
+                  <p:FlowStep.Next>
+                    <p:FlowDecision x:Name="__ReferenceID49" Condition="[EQ_ACTION_IS_ACTIVE = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">540,622.5</av:Point>
+                          <av:Size x:Key="ShapeSize">60,75</av:Size>
+                          <av:PointCollection x:Key="FalseConnector">600,660 630,660 689,660</av:PointCollection>
+                          <av:PointCollection x:Key="TrueConnector">540,660 510,660 394,660</av:PointCollection>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <p:FlowDecision.True>
+                        <p:FlowStep x:Name="__ReferenceID51">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">186,596.5</av:Point>
+                              <av:Size x:Key="ShapeSize">208,127</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">290,723.5 290,753.5 290,792.5</av:PointCollection>
+                            </scg3:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <p:InvokeMethod DisplayName="STATUSTOASSIGN" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_GETASSIGNSTT" TargetType="e1:R1WF">
+                            <p:InvokeMethod.Result>
+                              <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUS_TO_ASSIGN]</p:OutArgument>
+                            </p:InvokeMethod.Result>
+                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                          </p:InvokeMethod>
+                          <p:FlowStep.Next>
+                            <p:FlowDecision x:Name="__ReferenceID52" Condition="[EQ_STATUS_TO_ASSIGN &gt; -1]" sap:VirtualizedContainerService.HintSize="60,75">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">260,792.5</av:Point>
+                                  <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                  <av:PointCollection x:Key="TrueConnector">260,830 230,830 214,830</av:PointCollection>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <p:FlowDecision.True>
+                                <p:FlowStep x:Name="__ReferenceID53">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <av:Point x:Key="ShapeLocation">6,766.5</av:Point>
+                                      <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                      <av:PointCollection x:Key="ConnectorLocation">110,893.5 110,923.5 280,923.5 280,942.5</av:PointCollection>
+                                    </scg3:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <p:InvokeMethod DisplayName="CHECKACTOR " sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_ACTOR_CHECK" TargetType="e1:R1WF">
+                                    <p:InvokeMethod.Result>
+                                      <p:OutArgument x:TypeArguments="x:Int32">[EQ_ACTOR_VALID]</p:OutArgument>
+                                    </p:InvokeMethod.Result>
+                                    <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                                    <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTOR]</p:InArgument>
+                                  </p:InvokeMethod>
+                                  <p:FlowStep.Next>
+                                    <p:FlowDecision x:Name="__ReferenceID54" Condition="[EQ_ACTOR_VALID = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <av:Point x:Key="ShapeLocation">250,942.5</av:Point>
+                                          <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                          <av:PointCollection x:Key="FalseConnector">310,980 340,980 979,980</av:PointCollection>
+                                          <av:PointCollection x:Key="TrueConnector">250,980 240,980 240,1496.5 270,1496.5 270,1526.5</av:PointCollection>
+                                        </scg3:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <p:FlowDecision.True>
+                                        <p:FlowStep x:Name="__ReferenceID56">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <av:Point x:Key="ShapeLocation">166,1526.5</av:Point>
+                                              <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                              <av:PointCollection x:Key="ConnectorLocation">270,1653.5 270,1683.5 270,1712.5</av:PointCollection>
+                                            </scg3:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <p:InvokeMethod DisplayName="ACTION SET" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_ACTION" TargetType="e1:R1WF">
+                                            <p:InvokeMethod.Result>
+                                              <p:OutArgument x:TypeArguments="x:Int32">[EQ_SET]</p:OutArgument>
+                                            </p:InvokeMethod.Result>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTOR]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ASSIGNED]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.PERFORMED]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:String">[EQ_ACTION.EQ_TEXT]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.UID]</p:InArgument>
+                                          </p:InvokeMethod>
+                                          <p:FlowStep.Next>
+                                            <p:FlowDecision x:Name="__ReferenceID57" Condition="[EQ_SET &gt; 0]" sap:VirtualizedContainerService.HintSize="60,75">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <av:Point x:Key="ShapeLocation">240,1712.5</av:Point>
+                                                  <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                  <av:PointCollection x:Key="FalseConnector">300,1750 330,1750 999,1750</av:PointCollection>
+                                                  <av:PointCollection x:Key="TrueConnector">240,1750 180,1750 180,1792.5</av:PointCollection>
+                                                </scg3:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <p:FlowDecision.True>
+                                                <p:FlowDecision x:Name="__ReferenceID64" Condition="[EQ_ACTION.PERFORMED = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <av:Point x:Key="ShapeLocation">150,1792.5</av:Point>
+                                                      <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                      <av:PointCollection x:Key="TrueConnector">150,1830 140,1830 140,1926.5</av:PointCollection>
+                                                      <av:PointCollection x:Key="FalseConnector">210,1830 240,1830 999,1830</av:PointCollection>
+                                                    </scg3:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <p:FlowDecision.True>
+                                                    <p:FlowStep x:Name="__ReferenceID58">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <av:Point x:Key="ShapeLocation">36,1926.5</av:Point>
+                                                          <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                                          <av:PointCollection x:Key="ConnectorLocation">244,1990 690,1990 690,2072.5</av:PointCollection>
+                                                        </scg3:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <p:InvokeMethod DisplayName="EQSTATUSUP" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_EQSTATUSUP" TargetType="e1:R1WF">
+                                                        <p:InvokeMethod.Result>
+                                                          <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUSUP_OK]</p:OutArgument>
+                                                        </p:InvokeMethod.Result>
+                                                        <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                                        <p:InArgument x:TypeArguments="x:Int32">[EQ_STATUS_TO_ASSIGN]</p:InArgument>
+                                                      </p:InvokeMethod>
+                                                      <p:FlowStep.Next>
+                                                        <p:FlowDecision x:Name="__ReferenceID60" Condition="[EQ_STATUSUP_OK = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <av:Point x:Key="ShapeLocation">660,2072.5</av:Point>
+                                                              <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                              <av:PointCollection x:Key="FalseConnector">720,2110 750,2110 1006,2110</av:PointCollection>
+                                                              <av:PointCollection x:Key="TrueConnector">660,2110 630,2110 491,2110</av:PointCollection>
+                                                            </scg3:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <p:FlowDecision.True>
+                                                            <p:FlowStep x:Name="__ReferenceID61">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <av:Point x:Key="ShapeLocation">249,2081.5</av:Point>
+                                                                  <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                                  <av:PointCollection x:Key="ConnectorLocation">230,1568.5 230,1860 332.5,1860</av:PointCollection>
+                                                                </scg3:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <p:Assign DisplayName="STATUSUP = OK" sap:VirtualizedContainerService.HintSize="242,57">
+                                                                <p:Assign.To>
+                                                                  <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                                </p:Assign.To>
+                                                                <p:Assign.Value>
+                                                                  <p:InArgument x:TypeArguments="x:String">1000</p:InArgument>
+                                                                </p:Assign.Value>
+                                                              </p:Assign>
+                                                            </p:FlowStep>
+                                                          </p:FlowDecision.True>
+                                                          <p:FlowDecision.False>
+                                                            <p:FlowStep x:Name="__ReferenceID62">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <av:Point x:Key="ShapeLocation">1006,2046.5</av:Point>
+                                                                  <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                                                  <av:PointCollection x:Key="ConnectorLocation">1110,2173.5 1110,2203.5 1110,2241.5</av:PointCollection>
+                                                                </scg3:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <p:InvokeMethod DisplayName="STATUSUP_ROLLBACK" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_LAST_ACTION_ROLLBACK" TargetType="e1:R1WF">
+                                                                <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                                                <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                                                              </p:InvokeMethod>
+                                                              <p:FlowStep.Next>
+                                                                <p:FlowStep x:Name="__ReferenceID63">
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <av:Point x:Key="ShapeLocation">989,2241.5</av:Point>
+                                                                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                                      <av:PointCollection x:Key="ConnectorLocation">620,1788.5 620,1860 587.5,1860</av:PointCollection>
+                                                                    </scg3:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                  <p:Assign DisplayName="STATUSUP FAILED AND ACTION ROLLBACK" sap:VirtualizedContainerService.HintSize="242,57">
+                                                                    <p:Assign.To>
+                                                                      <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                                    </p:Assign.To>
+                                                                    <p:Assign.Value>
+                                                                      <p:InArgument x:TypeArguments="x:String">VFE1000</p:InArgument>
+                                                                    </p:Assign.Value>
+                                                                  </p:Assign>
+                                                                </p:FlowStep>
+                                                              </p:FlowStep.Next>
+                                                            </p:FlowStep>
+                                                          </p:FlowDecision.False>
+                                                        </p:FlowDecision>
+                                                      </p:FlowStep.Next>
+                                                    </p:FlowStep>
+                                                  </p:FlowDecision.True>
+                                                  <p:FlowDecision.False>
+                                                    <p:FlowStep x:Name="__ReferenceID65">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <av:Point x:Key="ShapeLocation">999,1801.5</av:Point>
+                                                          <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                        </scg3:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <p:Assign DisplayName="ACTION OK - NO STAT CHANGE" sap:VirtualizedContainerService.HintSize="242,57">
+                                                        <p:Assign.To>
+                                                          <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                        </p:Assign.To>
+                                                        <p:Assign.Value>
+                                                          <p:InArgument x:TypeArguments="x:String">1000</p:InArgument>
+                                                        </p:Assign.Value>
+                                                      </p:Assign>
+                                                    </p:FlowStep>
+                                                  </p:FlowDecision.False>
+                                                </p:FlowDecision>
+                                              </p:FlowDecision.True>
+                                              <p:FlowDecision.False>
+                                                <p:FlowStep x:Name="__ReferenceID59">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <av:Point x:Key="ShapeLocation">999,1721.5</av:Point>
+                                                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                    </scg3:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <p:Assign DisplayName="ACTION SET FAILED" sap:VirtualizedContainerService.HintSize="242,57">
+                                                    <p:Assign.To>
+                                                      <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                    </p:Assign.To>
+                                                    <p:Assign.Value>
+                                                      <p:InArgument x:TypeArguments="x:String">VFE300</p:InArgument>
+                                                    </p:Assign.Value>
+                                                  </p:Assign>
+                                                </p:FlowStep>
+                                              </p:FlowDecision.False>
+                                            </p:FlowDecision>
+                                          </p:FlowStep.Next>
+                                        </p:FlowStep>
+                                      </p:FlowDecision.True>
+                                      <p:FlowDecision.False>
+                                        <p:FlowStep x:Name="__ReferenceID55">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <av:Point x:Key="ShapeLocation">979,951.5</av:Point>
+                                              <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                            </scg3:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <p:Assign DisplayName="ERROR-200-ACTOR IS NOT VALID" sap:VirtualizedContainerService.HintSize="242,57">
+                                            <p:Assign.To>
+                                              <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                            </p:Assign.To>
+                                            <p:Assign.Value>
+                                              <p:InArgument x:TypeArguments="x:String">VFE200</p:InArgument>
+                                            </p:Assign.Value>
+                                          </p:Assign>
+                                        </p:FlowStep>
+                                      </p:FlowDecision.False>
+                                    </p:FlowDecision>
+                                  </p:FlowStep.Next>
+                                </p:FlowStep>
+                              </p:FlowDecision.True>
+                            </p:FlowDecision>
+                          </p:FlowStep.Next>
+                        </p:FlowStep>
+                      </p:FlowDecision.True>
+                      <p:FlowDecision.False>
+                        <p:FlowStep x:Name="__ReferenceID50">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">689,631.5</av:Point>
+                              <av:Size x:Key="ShapeSize">242,57</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">810,688.5 810,1860 587.5,1860</av:PointCollection>
+                            </scg3:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <p:Assign DisplayName="ERROR100-ACTION NOT ALLOWED" sap:VirtualizedContainerService.HintSize="242,57">
+                            <p:Assign.To>
+                              <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                            </p:Assign.To>
+                            <p:Assign.Value>
+                              <p:InArgument x:TypeArguments="x:String">VFE100</p:InArgument>
+                            </p:Assign.Value>
+                          </p:Assign>
+                        </p:FlowStep>
+                      </p:FlowDecision.False>
+                    </p:FlowDecision>
+                  </p:FlowStep.Next>
+                </p:FlowStep>
+              </p:FlowStep.Next>
+            </p:FlowStep>
+          </p:FlowStep.Next>
+        </p:FlowStep>
+        <x:Reference>__ReferenceID48</x:Reference>
+        <x:Reference>__ReferenceID49</x:Reference>
+        <x:Reference>__ReferenceID50</x:Reference>
+        <x:Reference>__ReferenceID51</x:Reference>
+        <x:Reference>__ReferenceID52</x:Reference>
+        <x:Reference>__ReferenceID53</x:Reference>
+        <x:Reference>__ReferenceID54</x:Reference>
+        <x:Reference>__ReferenceID55</x:Reference>
+        <x:Reference>__ReferenceID56</x:Reference>
+        <x:Reference>__ReferenceID57</x:Reference>
+        <x:Reference>__ReferenceID58</x:Reference>
+        <x:Reference>__ReferenceID59</x:Reference>
+        <x:Reference>__ReferenceID60</x:Reference>
+        <x:Reference>__ReferenceID61</x:Reference>
+        <x:Reference>__ReferenceID62</x:Reference>
+        <x:Reference>__ReferenceID63</x:Reference>
+        <x:Reference>__ReferenceID64</x:Reference>
+        <x:Reference>__ReferenceID65</x:Reference>
+        <x:Reference>__ReferenceID66</x:Reference>
+      </p:Flowchart>
+      <p:Flowchart x:Key="40" DisplayName="RESPONSE" sap:VirtualizedContainerService.HintSize="1378,100">
+        <p:Flowchart.Variables>
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUS" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_ACTION_IS_ACTIVE" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUS_TO_ASSIGN" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_ACTOR_VALID" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_SET" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUSUP_OK" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUSUP_ROLLBACK" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_ACTOR_FM" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_FACID" />
+        </p:Flowchart.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+            <av:Size x:Key="ShapeSize">60,75</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 300,256.5</av:PointCollection>
+            <x:Double x:Key="Height">2316.778666666667</x:Double>
+            <x:Double x:Key="Width">1290</x:Double>
+          </scg3:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <p:Flowchart.StartNode>
+          <x:Reference>__ReferenceID87</x:Reference>
+        </p:Flowchart.StartNode>
+        <p:FlowStep x:Name="__ReferenceID87">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">196,256.5</av:Point>
+              <av:Size x:Key="ShapeSize">208,127</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">300,383.5 300,413.5 300,416.5</av:PointCollection>
+            </scg3:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <p:InvokeMethod DisplayName="SupplyConnection" sap:VirtualizedContainerService.HintSize="208,127" MethodName="SetConnection" TargetType="e:OperatorStatic" />
+          <p:FlowStep.Next>
+            <p:FlowStep x:Name="__ReferenceID68">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">196,416.5</av:Point>
+                  <av:Size x:Key="ShapeSize">208,127</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">404,480 434,480 449,480</av:PointCollection>
+                </scg3:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <p:InvokeMethod DisplayName="CURRENTSTSATUS" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqme_WF_EQSTATUS" TargetType="e1:R1WF">
+                <p:InvokeMethod.Result>
+                  <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUS]</p:OutArgument>
+                </p:InvokeMethod.Result>
+                <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+              </p:InvokeMethod>
+              <p:FlowStep.Next>
+                <p:FlowStep x:Name="__ReferenceID86">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">449,451.5</av:Point>
+                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">570,508.5 570,538.5 570,622.5</av:PointCollection>
+                    </scg3:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <p:Assign sap:VirtualizedContainerService.HintSize="242,57">
+                    <p:Assign.To>
+                      <p:OutArgument x:TypeArguments="x:Int32">[EQ_ACTION_IS_ACTIVE]</p:OutArgument>
+                    </p:Assign.To>
+                    <p:Assign.Value>
+                      <p:InArgument x:TypeArguments="x:Int32">1</p:InArgument>
+                    </p:Assign.Value>
+                  </p:Assign>
+                  <p:FlowStep.Next>
+                    <p:FlowDecision x:Name="__ReferenceID69" Condition="[EQ_ACTION_IS_ACTIVE = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">540,622.5</av:Point>
+                          <av:Size x:Key="ShapeSize">60,75</av:Size>
+                          <av:PointCollection x:Key="FalseConnector">600,660 630,660 689,660</av:PointCollection>
+                          <av:PointCollection x:Key="TrueConnector">540,660 510,660 394,660</av:PointCollection>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <p:FlowDecision.True>
+                        <p:FlowStep x:Name="__ReferenceID71">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">186,596.5</av:Point>
+                              <av:Size x:Key="ShapeSize">208,127</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">290,723.5 290,753.5 290,792.5</av:PointCollection>
+                            </scg3:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <p:InvokeMethod DisplayName="STATUSTOASSIGN" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_GETASSIGNSTT" TargetType="e1:R1WF">
+                            <p:InvokeMethod.Result>
+                              <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUS_TO_ASSIGN]</p:OutArgument>
+                            </p:InvokeMethod.Result>
+                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                          </p:InvokeMethod>
+                          <p:FlowStep.Next>
+                            <p:FlowDecision x:Name="__ReferenceID72" Condition="[EQ_STATUS_TO_ASSIGN &gt; -1]" sap:VirtualizedContainerService.HintSize="60,75">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">260,792.5</av:Point>
+                                  <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                  <av:PointCollection x:Key="TrueConnector">260,830 230,830 214,830</av:PointCollection>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <p:FlowDecision.True>
+                                <p:FlowStep x:Name="__ReferenceID73">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <av:Point x:Key="ShapeLocation">6,766.5</av:Point>
+                                      <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                      <av:PointCollection x:Key="ConnectorLocation">110,893.5 110,923.5 280,923.5 280,942.5</av:PointCollection>
+                                    </scg3:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <p:InvokeMethod DisplayName="CHECKACTOR " sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_ACTOR_CHECK" TargetType="e1:R1WF">
+                                    <p:InvokeMethod.Result>
+                                      <p:OutArgument x:TypeArguments="x:Int32">[EQ_ACTOR_VALID]</p:OutArgument>
+                                    </p:InvokeMethod.Result>
+                                    <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                                    <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTOR]</p:InArgument>
+                                  </p:InvokeMethod>
+                                  <p:FlowStep.Next>
+                                    <p:FlowDecision x:Name="__ReferenceID74" Condition="[EQ_ACTOR_VALID = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <av:Point x:Key="ShapeLocation">250,942.5</av:Point>
+                                          <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                          <av:PointCollection x:Key="FalseConnector">310,980 340,980 979,980</av:PointCollection>
+                                          <av:PointCollection x:Key="TrueConnector">250,980 240,980 240,1496.5 270,1496.5 270,1526.5</av:PointCollection>
+                                        </scg3:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <p:FlowDecision.True>
+                                        <p:FlowStep x:Name="__ReferenceID76">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <av:Point x:Key="ShapeLocation">166,1526.5</av:Point>
+                                              <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                              <av:PointCollection x:Key="ConnectorLocation">270,1653.5 270,1683.5 270,1712.5</av:PointCollection>
+                                            </scg3:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <p:InvokeMethod DisplayName="ACTION SET" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_ACTION" TargetType="e1:R1WF">
+                                            <p:InvokeMethod.Result>
+                                              <p:OutArgument x:TypeArguments="x:Int32">[EQ_SET]</p:OutArgument>
+                                            </p:InvokeMethod.Result>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTOR]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ASSIGNED]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.PERFORMED]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:String">[EQ_ACTION.EQ_TEXT]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.UID]</p:InArgument>
+                                          </p:InvokeMethod>
+                                          <p:FlowStep.Next>
+                                            <p:FlowDecision x:Name="__ReferenceID77" Condition="[EQ_SET &gt; 0]" sap:VirtualizedContainerService.HintSize="60,75">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <av:Point x:Key="ShapeLocation">240,1712.5</av:Point>
+                                                  <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                  <av:PointCollection x:Key="FalseConnector">300,1750 330,1750 999,1750</av:PointCollection>
+                                                  <av:PointCollection x:Key="TrueConnector">240,1750 180,1750 180,1792.5</av:PointCollection>
+                                                </scg3:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <p:FlowDecision.True>
+                                                <p:FlowDecision x:Name="__ReferenceID84" Condition="[EQ_ACTION.PERFORMED = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <av:Point x:Key="ShapeLocation">150,1792.5</av:Point>
+                                                      <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                      <av:PointCollection x:Key="TrueConnector">150,1830 140,1830 140,1926.5</av:PointCollection>
+                                                      <av:PointCollection x:Key="FalseConnector">210,1830 240,1830 999,1830</av:PointCollection>
+                                                    </scg3:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <p:FlowDecision.True>
+                                                    <p:FlowStep x:Name="__ReferenceID78">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <av:Point x:Key="ShapeLocation">36,1926.5</av:Point>
+                                                          <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                                          <av:PointCollection x:Key="ConnectorLocation">244,1990 690,1990 690,2072.5</av:PointCollection>
+                                                        </scg3:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <p:InvokeMethod DisplayName="EQSTATUSUP" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_EQSTATUSUP" TargetType="e1:R1WF">
+                                                        <p:InvokeMethod.Result>
+                                                          <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUSUP_OK]</p:OutArgument>
+                                                        </p:InvokeMethod.Result>
+                                                        <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                                        <p:InArgument x:TypeArguments="x:Int32">[EQ_STATUS_TO_ASSIGN]</p:InArgument>
+                                                      </p:InvokeMethod>
+                                                      <p:FlowStep.Next>
+                                                        <p:FlowDecision x:Name="__ReferenceID80" Condition="[EQ_STATUSUP_OK = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <av:Point x:Key="ShapeLocation">660,2072.5</av:Point>
+                                                              <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                              <av:PointCollection x:Key="FalseConnector">720,2110 750,2110 1006,2110</av:PointCollection>
+                                                              <av:PointCollection x:Key="TrueConnector">660,2110 630,2110 491,2110</av:PointCollection>
+                                                            </scg3:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <p:FlowDecision.True>
+                                                            <p:FlowStep x:Name="__ReferenceID81">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <av:Point x:Key="ShapeLocation">249,2081.5</av:Point>
+                                                                  <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                                  <av:PointCollection x:Key="ConnectorLocation">230,1568.5 230,1860 332.5,1860</av:PointCollection>
+                                                                </scg3:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <p:Assign DisplayName="STATUSUP = OK" sap:VirtualizedContainerService.HintSize="242,57">
+                                                                <p:Assign.To>
+                                                                  <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                                </p:Assign.To>
+                                                                <p:Assign.Value>
+                                                                  <p:InArgument x:TypeArguments="x:String">1000</p:InArgument>
+                                                                </p:Assign.Value>
+                                                              </p:Assign>
+                                                            </p:FlowStep>
+                                                          </p:FlowDecision.True>
+                                                          <p:FlowDecision.False>
+                                                            <p:FlowStep x:Name="__ReferenceID82">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <av:Point x:Key="ShapeLocation">1006,2046.5</av:Point>
+                                                                  <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                                                  <av:PointCollection x:Key="ConnectorLocation">1110,2173.5 1110,2203.5 1110,2241.5</av:PointCollection>
+                                                                </scg3:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <p:InvokeMethod DisplayName="STATUSUP_ROLLBACK" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_LAST_ACTION_ROLLBACK" TargetType="e1:R1WF">
+                                                                <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                                                <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                                                              </p:InvokeMethod>
+                                                              <p:FlowStep.Next>
+                                                                <p:FlowStep x:Name="__ReferenceID83">
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <av:Point x:Key="ShapeLocation">989,2241.5</av:Point>
+                                                                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                                      <av:PointCollection x:Key="ConnectorLocation">620,1788.5 620,1860 587.5,1860</av:PointCollection>
+                                                                    </scg3:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                  <p:Assign DisplayName="STATUSUP FAILED AND ACTION ROLLBACK" sap:VirtualizedContainerService.HintSize="242,57">
+                                                                    <p:Assign.To>
+                                                                      <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                                    </p:Assign.To>
+                                                                    <p:Assign.Value>
+                                                                      <p:InArgument x:TypeArguments="x:String">RSP1000</p:InArgument>
+                                                                    </p:Assign.Value>
+                                                                  </p:Assign>
+                                                                </p:FlowStep>
+                                                              </p:FlowStep.Next>
+                                                            </p:FlowStep>
+                                                          </p:FlowDecision.False>
+                                                        </p:FlowDecision>
+                                                      </p:FlowStep.Next>
+                                                    </p:FlowStep>
+                                                  </p:FlowDecision.True>
+                                                  <p:FlowDecision.False>
+                                                    <p:FlowStep x:Name="__ReferenceID85">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <av:Point x:Key="ShapeLocation">999,1801.5</av:Point>
+                                                          <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                        </scg3:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <p:Assign DisplayName="ACTION OK - NO STAT CHANGE" sap:VirtualizedContainerService.HintSize="242,57">
+                                                        <p:Assign.To>
+                                                          <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                        </p:Assign.To>
+                                                        <p:Assign.Value>
+                                                          <p:InArgument x:TypeArguments="x:String">RSP1000</p:InArgument>
+                                                        </p:Assign.Value>
+                                                      </p:Assign>
+                                                    </p:FlowStep>
+                                                  </p:FlowDecision.False>
+                                                </p:FlowDecision>
+                                              </p:FlowDecision.True>
+                                              <p:FlowDecision.False>
+                                                <p:FlowStep x:Name="__ReferenceID79">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <av:Point x:Key="ShapeLocation">999,1721.5</av:Point>
+                                                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                    </scg3:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <p:Assign DisplayName="ACTION SET FAILED" sap:VirtualizedContainerService.HintSize="242,57">
+                                                    <p:Assign.To>
+                                                      <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                    </p:Assign.To>
+                                                    <p:Assign.Value>
+                                                      <p:InArgument x:TypeArguments="x:String">RSP300</p:InArgument>
+                                                    </p:Assign.Value>
+                                                  </p:Assign>
+                                                </p:FlowStep>
+                                              </p:FlowDecision.False>
+                                            </p:FlowDecision>
+                                          </p:FlowStep.Next>
+                                        </p:FlowStep>
+                                      </p:FlowDecision.True>
+                                      <p:FlowDecision.False>
+                                        <p:FlowStep x:Name="__ReferenceID75">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <av:Point x:Key="ShapeLocation">979,951.5</av:Point>
+                                              <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                            </scg3:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <p:Assign DisplayName="ERROR-200-ACTOR IS NOT VALID" sap:VirtualizedContainerService.HintSize="242,57">
+                                            <p:Assign.To>
+                                              <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                            </p:Assign.To>
+                                            <p:Assign.Value>
+                                              <p:InArgument x:TypeArguments="x:String">RSP200</p:InArgument>
+                                            </p:Assign.Value>
+                                          </p:Assign>
+                                        </p:FlowStep>
+                                      </p:FlowDecision.False>
+                                    </p:FlowDecision>
+                                  </p:FlowStep.Next>
+                                </p:FlowStep>
+                              </p:FlowDecision.True>
+                            </p:FlowDecision>
+                          </p:FlowStep.Next>
+                        </p:FlowStep>
+                      </p:FlowDecision.True>
+                      <p:FlowDecision.False>
+                        <p:FlowStep x:Name="__ReferenceID70">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">689,631.5</av:Point>
+                              <av:Size x:Key="ShapeSize">242,57</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">810,688.5 810,1860 587.5,1860</av:PointCollection>
+                            </scg3:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <p:Assign DisplayName="ERROR100-ACTION NOT ALLOWED" sap:VirtualizedContainerService.HintSize="242,57">
+                            <p:Assign.To>
+                              <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                            </p:Assign.To>
+                            <p:Assign.Value>
+                              <p:InArgument x:TypeArguments="x:String">RSP100</p:InArgument>
+                            </p:Assign.Value>
+                          </p:Assign>
+                        </p:FlowStep>
+                      </p:FlowDecision.False>
+                    </p:FlowDecision>
+                  </p:FlowStep.Next>
+                </p:FlowStep>
+              </p:FlowStep.Next>
+            </p:FlowStep>
+          </p:FlowStep.Next>
+        </p:FlowStep>
+        <x:Reference>__ReferenceID68</x:Reference>
+        <x:Reference>__ReferenceID69</x:Reference>
+        <x:Reference>__ReferenceID70</x:Reference>
+        <x:Reference>__ReferenceID71</x:Reference>
+        <x:Reference>__ReferenceID72</x:Reference>
+        <x:Reference>__ReferenceID73</x:Reference>
+        <x:Reference>__ReferenceID74</x:Reference>
+        <x:Reference>__ReferenceID75</x:Reference>
+        <x:Reference>__ReferenceID76</x:Reference>
+        <x:Reference>__ReferenceID77</x:Reference>
+        <x:Reference>__ReferenceID78</x:Reference>
+        <x:Reference>__ReferenceID79</x:Reference>
+        <x:Reference>__ReferenceID80</x:Reference>
+        <x:Reference>__ReferenceID81</x:Reference>
+        <x:Reference>__ReferenceID82</x:Reference>
+        <x:Reference>__ReferenceID83</x:Reference>
+        <x:Reference>__ReferenceID84</x:Reference>
+        <x:Reference>__ReferenceID85</x:Reference>
+        <x:Reference>__ReferenceID86</x:Reference>
+      </p:Flowchart>
+      <p:Flowchart x:Key="50" DisplayName="APPROVE" sap:VirtualizedContainerService.HintSize="1378,100">
+        <p:Flowchart.Variables>
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUS" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_ACTION_IS_ACTIVE" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUS_TO_ASSIGN" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_ACTOR_VALID" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_SET" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUSUP_OK" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_STATUSUP_ROLLBACK" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_ACTOR_FM" />
+          <p:Variable x:TypeArguments="x:Int32" Name="EQ_FACID" />
+        </p:Flowchart.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+            <av:Size x:Key="ShapeSize">60,75</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 300,256.5</av:PointCollection>
+            <x:Double x:Key="Height">2316.778666666667</x:Double>
+            <x:Double x:Key="Width">1290</x:Double>
+          </scg3:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <p:Flowchart.StartNode>
+          <x:Reference>__ReferenceID107</x:Reference>
+        </p:Flowchart.StartNode>
+        <p:FlowStep x:Name="__ReferenceID107">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">196,256.5</av:Point>
+              <av:Size x:Key="ShapeSize">208,127</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">300,383.5 300,413.5 300,416.5</av:PointCollection>
+            </scg3:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <p:InvokeMethod DisplayName="SupplyConnection" sap:VirtualizedContainerService.HintSize="208,127" MethodName="SetConnection" TargetType="e:OperatorStatic" />
+          <p:FlowStep.Next>
+            <p:FlowStep x:Name="__ReferenceID88">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">196,416.5</av:Point>
+                  <av:Size x:Key="ShapeSize">208,127</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">404,480 434,480 449,480</av:PointCollection>
+                </scg3:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <p:InvokeMethod DisplayName="CURRENTSTSATUS" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqme_WF_EQSTATUS" TargetType="e1:R1WF">
+                <p:InvokeMethod.Result>
+                  <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUS]</p:OutArgument>
+                </p:InvokeMethod.Result>
+                <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+              </p:InvokeMethod>
+              <p:FlowStep.Next>
+                <p:FlowStep x:Name="__ReferenceID106">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">449,451.5</av:Point>
+                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">570,508.5 570,538.5 570,622.5</av:PointCollection>
+                    </scg3:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <p:Assign sap:VirtualizedContainerService.HintSize="242,57">
+                    <p:Assign.To>
+                      <p:OutArgument x:TypeArguments="x:Int32">[EQ_ACTION_IS_ACTIVE]</p:OutArgument>
+                    </p:Assign.To>
+                    <p:Assign.Value>
+                      <p:InArgument x:TypeArguments="x:Int32">1</p:InArgument>
+                    </p:Assign.Value>
+                  </p:Assign>
+                  <p:FlowStep.Next>
+                    <p:FlowDecision x:Name="__ReferenceID89" Condition="[EQ_ACTION_IS_ACTIVE = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">540,622.5</av:Point>
+                          <av:Size x:Key="ShapeSize">60,75</av:Size>
+                          <av:PointCollection x:Key="FalseConnector">600,660 630,660 689,660</av:PointCollection>
+                          <av:PointCollection x:Key="TrueConnector">540,660 510,660 394,660</av:PointCollection>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <p:FlowDecision.True>
+                        <p:FlowStep x:Name="__ReferenceID91">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">186,596.5</av:Point>
+                              <av:Size x:Key="ShapeSize">208,127</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">290,723.5 290,753.5 290,792.5</av:PointCollection>
+                            </scg3:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <p:InvokeMethod DisplayName="STATUSTOASSIGN" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_GETASSIGNSTT" TargetType="e1:R1WF">
+                            <p:InvokeMethod.Result>
+                              <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUS_TO_ASSIGN]</p:OutArgument>
+                            </p:InvokeMethod.Result>
+                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                          </p:InvokeMethod>
+                          <p:FlowStep.Next>
+                            <p:FlowDecision x:Name="__ReferenceID92" Condition="[EQ_STATUS_TO_ASSIGN &gt; -1]" sap:VirtualizedContainerService.HintSize="60,75">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">260,792.5</av:Point>
+                                  <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                  <av:PointCollection x:Key="TrueConnector">260,830 230,830 214,830</av:PointCollection>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <p:FlowDecision.True>
+                                <p:FlowStep x:Name="__ReferenceID93">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <av:Point x:Key="ShapeLocation">6,766.5</av:Point>
+                                      <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                      <av:PointCollection x:Key="ConnectorLocation">110,893.5 110,923.5 280,923.5 280,942.5</av:PointCollection>
+                                    </scg3:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <p:InvokeMethod DisplayName="CHECKACTOR " sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_ACTOR_CHECK" TargetType="e1:R1WF">
+                                    <p:InvokeMethod.Result>
+                                      <p:OutArgument x:TypeArguments="x:Int32">[EQ_ACTOR_VALID]</p:OutArgument>
+                                    </p:InvokeMethod.Result>
+                                    <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                                    <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTOR]</p:InArgument>
+                                  </p:InvokeMethod>
+                                  <p:FlowStep.Next>
+                                    <p:FlowDecision x:Name="__ReferenceID94" Condition="[EQ_ACTOR_VALID = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <av:Point x:Key="ShapeLocation">250,942.5</av:Point>
+                                          <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                          <av:PointCollection x:Key="FalseConnector">310,980 340,980 979,980</av:PointCollection>
+                                          <av:PointCollection x:Key="TrueConnector">250,980 240,980 240,1496.5 270,1496.5 270,1526.5</av:PointCollection>
+                                        </scg3:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <p:FlowDecision.True>
+                                        <p:FlowStep x:Name="__ReferenceID96">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <av:Point x:Key="ShapeLocation">166,1526.5</av:Point>
+                                              <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                              <av:PointCollection x:Key="ConnectorLocation">270,1653.5 270,1683.5 270,1712.5</av:PointCollection>
+                                            </scg3:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <p:InvokeMethod DisplayName="ACTION SET" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_ACTION" TargetType="e1:R1WF">
+                                            <p:InvokeMethod.Result>
+                                              <p:OutArgument x:TypeArguments="x:Int32">[EQ_SET]</p:OutArgument>
+                                            </p:InvokeMethod.Result>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTOR]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ASSIGNED]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.PERFORMED]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:String">[EQ_ACTION.EQ_TEXT]</p:InArgument>
+                                            <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.UID]</p:InArgument>
+                                          </p:InvokeMethod>
+                                          <p:FlowStep.Next>
+                                            <p:FlowDecision x:Name="__ReferenceID97" Condition="[EQ_SET &gt; 0]" sap:VirtualizedContainerService.HintSize="60,75">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <av:Point x:Key="ShapeLocation">240,1712.5</av:Point>
+                                                  <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                  <av:PointCollection x:Key="FalseConnector">300,1750 330,1750 999,1750</av:PointCollection>
+                                                  <av:PointCollection x:Key="TrueConnector">240,1750 180,1750 180,1792.5</av:PointCollection>
+                                                </scg3:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <p:FlowDecision.True>
+                                                <p:FlowDecision x:Name="__ReferenceID104" Condition="[EQ_ACTION.PERFORMED = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <av:Point x:Key="ShapeLocation">150,1792.5</av:Point>
+                                                      <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                      <av:PointCollection x:Key="TrueConnector">150,1830 140,1830 140,1926.5</av:PointCollection>
+                                                      <av:PointCollection x:Key="FalseConnector">210,1830 240,1830 999,1830</av:PointCollection>
+                                                    </scg3:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <p:FlowDecision.True>
+                                                    <p:FlowStep x:Name="__ReferenceID98">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <av:Point x:Key="ShapeLocation">36,1926.5</av:Point>
+                                                          <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                                          <av:PointCollection x:Key="ConnectorLocation">244,1990 690,1990 690,2072.5</av:PointCollection>
+                                                        </scg3:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <p:InvokeMethod DisplayName="EQSTATUSUP" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_EQSTATUSUP" TargetType="e1:R1WF">
+                                                        <p:InvokeMethod.Result>
+                                                          <p:OutArgument x:TypeArguments="x:Int32">[EQ_STATUSUP_OK]</p:OutArgument>
+                                                        </p:InvokeMethod.Result>
+                                                        <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                                        <p:InArgument x:TypeArguments="x:Int32">[EQ_STATUS_TO_ASSIGN]</p:InArgument>
+                                                      </p:InvokeMethod>
+                                                      <p:FlowStep.Next>
+                                                        <p:FlowDecision x:Name="__ReferenceID100" Condition="[EQ_STATUSUP_OK = 1]" sap:VirtualizedContainerService.HintSize="60,75">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <av:Point x:Key="ShapeLocation">660,2072.5</av:Point>
+                                                              <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                              <av:PointCollection x:Key="FalseConnector">720,2110 750,2110 1006,2110</av:PointCollection>
+                                                              <av:PointCollection x:Key="TrueConnector">660,2110 630,2110 491,2110</av:PointCollection>
+                                                            </scg3:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <p:FlowDecision.True>
+                                                            <p:FlowStep x:Name="__ReferenceID101">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <av:Point x:Key="ShapeLocation">249,2081.5</av:Point>
+                                                                  <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                                  <av:PointCollection x:Key="ConnectorLocation">230,1568.5 230,1860 332.5,1860</av:PointCollection>
+                                                                </scg3:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <p:Assign DisplayName="STATUSUP = OK" sap:VirtualizedContainerService.HintSize="242,57">
+                                                                <p:Assign.To>
+                                                                  <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                                </p:Assign.To>
+                                                                <p:Assign.Value>
+                                                                  <p:InArgument x:TypeArguments="x:String">1000</p:InArgument>
+                                                                </p:Assign.Value>
+                                                              </p:Assign>
+                                                            </p:FlowStep>
+                                                          </p:FlowDecision.True>
+                                                          <p:FlowDecision.False>
+                                                            <p:FlowStep x:Name="__ReferenceID102">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <av:Point x:Key="ShapeLocation">1006,2046.5</av:Point>
+                                                                  <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                                                  <av:PointCollection x:Key="ConnectorLocation">1110,2173.5 1110,2203.5 1110,2241.5</av:PointCollection>
+                                                                </scg3:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <p:InvokeMethod DisplayName="STATUSUP_ROLLBACK" sap:VirtualizedContainerService.HintSize="208,127" MethodName="eqmu_WF_LAST_ACTION_ROLLBACK" TargetType="e1:R1WF">
+                                                                <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.EQID]</p:InArgument>
+                                                                <p:InArgument x:TypeArguments="x:Int32">[EQ_ACTION.ACTION_CODE]</p:InArgument>
+                                                              </p:InvokeMethod>
+                                                              <p:FlowStep.Next>
+                                                                <p:FlowStep x:Name="__ReferenceID103">
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <av:Point x:Key="ShapeLocation">989,2241.5</av:Point>
+                                                                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                                      <av:PointCollection x:Key="ConnectorLocation">620,1788.5 620,1860 587.5,1860</av:PointCollection>
+                                                                    </scg3:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                  <p:Assign DisplayName="STATUSUP FAILED AND ACTION ROLLBACK" sap:VirtualizedContainerService.HintSize="242,57">
+                                                                    <p:Assign.To>
+                                                                      <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                                    </p:Assign.To>
+                                                                    <p:Assign.Value>
+                                                                      <p:InArgument x:TypeArguments="x:String">VFE1000</p:InArgument>
+                                                                    </p:Assign.Value>
+                                                                  </p:Assign>
+                                                                </p:FlowStep>
+                                                              </p:FlowStep.Next>
+                                                            </p:FlowStep>
+                                                          </p:FlowDecision.False>
+                                                        </p:FlowDecision>
+                                                      </p:FlowStep.Next>
+                                                    </p:FlowStep>
+                                                  </p:FlowDecision.True>
+                                                  <p:FlowDecision.False>
+                                                    <p:FlowStep x:Name="__ReferenceID105">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <av:Point x:Key="ShapeLocation">999,1801.5</av:Point>
+                                                          <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                        </scg3:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <p:Assign DisplayName="ACTION OK - NO STAT CHANGE" sap:VirtualizedContainerService.HintSize="242,57">
+                                                        <p:Assign.To>
+                                                          <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                        </p:Assign.To>
+                                                        <p:Assign.Value>
+                                                          <p:InArgument x:TypeArguments="x:String">1000</p:InArgument>
+                                                        </p:Assign.Value>
+                                                      </p:Assign>
+                                                    </p:FlowStep>
+                                                  </p:FlowDecision.False>
+                                                </p:FlowDecision>
+                                              </p:FlowDecision.True>
+                                              <p:FlowDecision.False>
+                                                <p:FlowStep x:Name="__ReferenceID99">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <av:Point x:Key="ShapeLocation">999,1721.5</av:Point>
+                                                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                                    </scg3:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <p:Assign DisplayName="ACTION SET FAILED" sap:VirtualizedContainerService.HintSize="242,57">
+                                                    <p:Assign.To>
+                                                      <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                                    </p:Assign.To>
+                                                    <p:Assign.Value>
+                                                      <p:InArgument x:TypeArguments="x:String">VFE300</p:InArgument>
+                                                    </p:Assign.Value>
+                                                  </p:Assign>
+                                                </p:FlowStep>
+                                              </p:FlowDecision.False>
+                                            </p:FlowDecision>
+                                          </p:FlowStep.Next>
+                                        </p:FlowStep>
+                                      </p:FlowDecision.True>
+                                      <p:FlowDecision.False>
+                                        <p:FlowStep x:Name="__ReferenceID95">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <av:Point x:Key="ShapeLocation">979,951.5</av:Point>
+                                              <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                            </scg3:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <p:Assign DisplayName="ERROR-200-ACTOR IS NOT VALID" sap:VirtualizedContainerService.HintSize="242,57">
+                                            <p:Assign.To>
+                                              <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                                            </p:Assign.To>
+                                            <p:Assign.Value>
+                                              <p:InArgument x:TypeArguments="x:String">VFE200</p:InArgument>
+                                            </p:Assign.Value>
+                                          </p:Assign>
+                                        </p:FlowStep>
+                                      </p:FlowDecision.False>
+                                    </p:FlowDecision>
+                                  </p:FlowStep.Next>
+                                </p:FlowStep>
+                              </p:FlowDecision.True>
+                            </p:FlowDecision>
+                          </p:FlowStep.Next>
+                        </p:FlowStep>
+                      </p:FlowDecision.True>
+                      <p:FlowDecision.False>
+                        <p:FlowStep x:Name="__ReferenceID90">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">689,631.5</av:Point>
+                              <av:Size x:Key="ShapeSize">242,57</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">810,688.5 810,1860 587.5,1860</av:PointCollection>
+                            </scg3:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <p:Assign DisplayName="ERROR100-ACTION NOT ALLOWED" sap:VirtualizedContainerService.HintSize="242,57">
+                            <p:Assign.To>
+                              <p:OutArgument x:TypeArguments="x:String">[EQ_OUT]</p:OutArgument>
+                            </p:Assign.To>
+                            <p:Assign.Value>
+                              <p:InArgument x:TypeArguments="x:String">VFE100</p:InArgument>
+                            </p:Assign.Value>
+                          </p:Assign>
+                        </p:FlowStep>
+                      </p:FlowDecision.False>
+                    </p:FlowDecision>
+                  </p:FlowStep.Next>
+                </p:FlowStep>
+              </p:FlowStep.Next>
+            </p:FlowStep>
+          </p:FlowStep.Next>
+        </p:FlowStep>
+        <x:Reference>__ReferenceID88</x:Reference>
+        <x:Reference>__ReferenceID89</x:Reference>
+        <x:Reference>__ReferenceID90</x:Reference>
+        <x:Reference>__ReferenceID91</x:Reference>
+        <x:Reference>__ReferenceID92</x:Reference>
+        <x:Reference>__ReferenceID93</x:Reference>
+        <x:Reference>__ReferenceID94</x:Reference>
+        <x:Reference>__ReferenceID95</x:Reference>
+        <x:Reference>__ReferenceID96</x:Reference>
+        <x:Reference>__ReferenceID97</x:Reference>
+        <x:Reference>__ReferenceID98</x:Reference>
+        <x:Reference>__ReferenceID99</x:Reference>
+        <x:Reference>__ReferenceID100</x:Reference>
+        <x:Reference>__ReferenceID101</x:Reference>
+        <x:Reference>__ReferenceID102</x:Reference>
+        <x:Reference>__ReferenceID103</x:Reference>
+        <x:Reference>__ReferenceID104</x:Reference>
+        <x:Reference>__ReferenceID105</x:Reference>
+        <x:Reference>__ReferenceID106</x:Reference>
+      </p:Flowchart>
+    </p:Switch>
+    <SendReply Request="{x:Reference __ReferenceID108}" DisplayName="SendReplyToReceive" sap:VirtualizedContainerService.HintSize="473,86">
+      <SendMessageContent DeclaredMessageType="x:String">
+        <p:InArgument x:TypeArguments="x:String">[EQ_OUT]</p:InArgument>
+      </SendMessageContent>
+    </SendReply>
+  </p:Sequence>
+</WorkflowService>

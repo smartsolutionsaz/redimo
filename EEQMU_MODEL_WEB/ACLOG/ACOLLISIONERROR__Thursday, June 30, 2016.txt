@@ -1,0 +1,9 @@
+[ 6/30/2016  T 12:58:20 PM ] [ ACollisionErrorLog|System.Xml.XmlDocument GetExceptionLogFile() ] Отсутствует корневой элемент.
+[ 6/30/2016  T 12:58:20 PM ] [ ACollisionErrorLog|System.Xml.XmlDocument AppendExceptionLog(ACollision.ApplicationException, System.Xml.XmlDocument) ] Ссылка на объект не указывает на экземпляр объекта.
+[ 6/30/2016  T 12:58:20 PM ] [ ACollisionErrorLog|Void SaveExceptionLogFile(System.Xml.XmlDocument) ] Недопустимый XML-документ. Документ не содержит корневого элемента.
+[ 6/30/2016  T 12:58:45 PM ] [ ACollisionErrorLog|System.Xml.XmlDocument GetExceptionLogFile() ] Отсутствует корневой элемент.
+[ 6/30/2016  T 12:58:45 PM ] [ ACollisionErrorLog|System.Xml.XmlDocument AppendExceptionLog(ACollision.ApplicationException, System.Xml.XmlDocument) ] Ссылка на объект не указывает на экземпляр объекта.
+[ 6/30/2016  T 12:58:45 PM ] [ ACollisionErrorLog|Void SaveExceptionLogFile(System.Xml.XmlDocument) ] Недопустимый XML-документ. Документ не содержит корневого элемента.
+[ 6/30/2016  T 12:58:49 PM ] [ ACollisionErrorLog|System.Xml.XmlDocument GetExceptionLogFile() ] Отсутствует корневой элемент.
+[ 6/30/2016  T 12:58:49 PM ] [ ACollisionErrorLog|System.Xml.XmlDocument AppendExceptionLog(ACollision.ApplicationException, System.Xml.XmlDocument) ] Ссылка на объект не указывает на экземпляр объекта.
+[ 6/30/2016  T 12:58:49 PM ] [ ACollisionErrorLog|Void SaveExceptionLogFile(System.Xml.XmlDocument) ] Недопустимый XML-документ. Документ не содержит корневого элемента.

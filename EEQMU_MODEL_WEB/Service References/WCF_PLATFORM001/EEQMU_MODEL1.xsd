@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PLATFORM700TOREVO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PLATFORM700TOREVO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="WF_ACTION_OBJECT">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:P700BASECLASS">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActionID" type="xs:int" />
+          <xs:element minOccurs="0" name="ActionText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActorID" type="xs:int" />
+          <xs:element minOccurs="0" name="DOCID" type="xs:int" />
+          <xs:element minOccurs="0" name="DoStatusUP" type="xs:int" />
+          <xs:element minOccurs="0" name="IsAssigned" type="xs:int" />
+          <xs:element minOccurs="0" name="IsPerformed" type="xs:int" />
+          <xs:element minOccurs="0" name="UID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WF_ACTION_OBJECT" nillable="true" type="tns:WF_ACTION_OBJECT" />
+  <xs:complexType name="P700BASECLASS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="propDocumentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="propMethod" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="P700BASECLASS" nillable="true" type="tns:P700BASECLASS" />
+  <xs:complexType name="WF_ACTION_MESSAGE">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:P700TOREVOBASEMESSAGE">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="propMessageCode" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WF_ACTION_MESSAGE" nillable="true" type="tns:WF_ACTION_MESSAGE" />
+  <xs:complexType name="P700TOREVOBASEMESSAGE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="propMessageText" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="P700TOREVOBASEMESSAGE" nillable="true" type="tns:P700TOREVOBASEMESSAGE" />
+</xs:schema>

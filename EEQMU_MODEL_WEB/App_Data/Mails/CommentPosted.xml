@@ -1,0 +1,9 @@
+<font face="Arial" color="#008000" size="2">
+ You have received this notification from EQ: [eq_code] because there is comment posted with notification.
+ <br/>
+ [comment_by]&nbsp;&nbsp;[comment_on]
+ <br/>
+ Comment Posted:<br/>
+ [comment]
+
+</font>

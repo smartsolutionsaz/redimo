@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB_PLATFORM007", "EEQMU_MODEL_WEB\WEB_PLATFORM007.csproj", "{D1EFE308-F83D-4945-9130-BF3690FAB9FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EEQMU_MODEL", "EEQMU_MODEL\EEQMU_MODEL.csproj", "{939AD559-2FE9-433C-9A44-9CAFB29D4730}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1EFE308-F83D-4945-9130-BF3690FAB9FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1EFE308-F83D-4945-9130-BF3690FAB9FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1EFE308-F83D-4945-9130-BF3690FAB9FF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D1EFE308-F83D-4945-9130-BF3690FAB9FF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D1EFE308-F83D-4945-9130-BF3690FAB9FF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D1EFE308-F83D-4945-9130-BF3690FAB9FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1EFE308-F83D-4945-9130-BF3690FAB9FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1EFE308-F83D-4945-9130-BF3690FAB9FF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D1EFE308-F83D-4945-9130-BF3690FAB9FF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D1EFE308-F83D-4945-9130-BF3690FAB9FF}.Release|x86.ActiveCfg = Release|Any CPU
+		{939AD559-2FE9-433C-9A44-9CAFB29D4730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{939AD559-2FE9-433C-9A44-9CAFB29D4730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{939AD559-2FE9-433C-9A44-9CAFB29D4730}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{939AD559-2FE9-433C-9A44-9CAFB29D4730}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{939AD559-2FE9-433C-9A44-9CAFB29D4730}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{939AD559-2FE9-433C-9A44-9CAFB29D4730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{939AD559-2FE9-433C-9A44-9CAFB29D4730}.Release|Any CPU.Build.0 = Release|Any CPU
+		{939AD559-2FE9-433C-9A44-9CAFB29D4730}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{939AD559-2FE9-433C-9A44-9CAFB29D4730}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{939AD559-2FE9-433C-9A44-9CAFB29D4730}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

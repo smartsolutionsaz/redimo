@@ -1,0 +1,12 @@
+﻿body {
+    font-size: 14px;
+    min-width: 1200px;
+}
+
+.no-padding {
+    margin: 0;
+}
+
+    .no-padding > div {
+        padding: 0px;
+    }

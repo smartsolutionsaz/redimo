@@ -1,0 +1,7 @@
+D:\inetpub\wwwroot\EEQMU_MODEL\EEQMU_MODEL\bin\EEQMU_MODEL.dll
+D:\inetpub\wwwroot\EEQMU_MODEL\EEQMU_MODEL\bin\EEQMU_MODEL.pdb
+D:\inetpub\wwwroot\EEQMU_MODEL\EEQMU_MODEL\bin\EEQ_MU_SmartSolutionsDALC.dll
+D:\inetpub\wwwroot\EEQMU_MODEL\EEQMU_MODEL\bin\EEQ_MU_SmartSolutionsDALC.pdb
+D:\inetpub\wwwroot\EEQMU_MODEL\EEQMU_MODEL\obj\Release\ResolveAssemblyReference.cache
+D:\inetpub\wwwroot\EEQMU_MODEL\EEQMU_MODEL\obj\Release\EEQMU_MODEL.dll
+D:\inetpub\wwwroot\EEQMU_MODEL\EEQMU_MODEL\obj\Release\EEQMU_MODEL.pdb
